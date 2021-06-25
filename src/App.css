@@ -1,0 +1,96 @@
+:root {
+  --input-border: #8b8a8b;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.input, .textarea {
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+}
+
+.input:focus, .textarea:focus {
+  border-color: hsl(
+    var(--input-focus-h),
+    var(--input-focus-s),
+    var(--input-focus-l)
+  );
+  box-shadow: 0 0 0 3px 
+    hsla(
+      var(--input-focus-h),
+      var(--input-focus-s),
+      calc(var(--input-focus-l) + 40%),
+      0.8
+    );
+  outline: 3px solid transparent;
+}
+
+.input:not(textarea) {
+  line-height: 1;
+  height: 2.25rem;
+}
+
+.input[type="file"] {
+  font-size: 0.9em;
+  padding-top: 0.35rem;
+}
+
+textarea.input {
+  resize: vertical;
+}
+
+.input[disabled], .textarea[disabled] {
+  cursor: not-allowed;
+  --input-border: #ccc;
+  background-color: #eee;
+}
+
+.input[readonly] {
+  border-style: dotted;
+  cursor: not-allowed;
+  color: #777;
+}
+
+label{
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 500;
+}
+button {
+  margin-top: 2em;
+  height: 3em;
+  background: cornflowerblue;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  font-size: 1em;
+  color: white;
+}
+
+button:hover {
+  background-color: darkblue;
+  cursor: pointer;
+  border: none;
+}
+
+#error {
+  display: flex;
+  border: 1px solid rgb(17, 0, 255);
+  padding: 0.25em;
+  justify-content: center;
+  color: rgb(3, 7, 241);
+  margin-bottom: 1em;
+}
